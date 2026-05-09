@@ -4,35 +4,44 @@ public class HumanBase : MonoBehaviour
 {
     [SerializeField] private float gravityScale;
     [SerializeField] private int pointValue;
-    //private bool _hasBounced; -- to be implemented if we have time!
-    private Rigidbody2D _rigidbody;
     
-    void Start()
+    protected Rigidbody2D rigidbodyHuman;
+    private HumanSpawner _humanSpawner;
+    
+    protected virtual void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _rigidbody.gravityScale = gravityScale;
+        rigidbodyHuman = GetComponent<Rigidbody2D>();
+        rigidbodyHuman.gravityScale = 0f; //start with no gravity, only fall when we call StartFalling()
         
     }
-    
-    // void WasBounced()
-    // {
-    //     _hasBounced = true;
-    // }
+    public void SetSpawner(HumanSpawner spawner)
+    {
+        _humanSpawner = spawner;
+    }
+
+    public void StartFalling()
+    {
+      
+        rigidbodyHuman.gravityScale = gravityScale;
+        
+    }
     
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("ScoreZone"))
         {
             //GameManager.Instance.AddScore(pointValue);
+            _humanSpawner.HumanDead();
             Destroy(gameObject);
         }
 
         if (other.CompareTag("Ground"))
         {
+            _humanSpawner.HumanDead();
             Destroy(gameObject);
             //Game Over, go to end game scene
         }
-        
+
     }
     
 }

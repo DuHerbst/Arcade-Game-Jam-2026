@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - ScoreZone
   layers:
   - Default
   - TransparentFX
