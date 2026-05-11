@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5449452239397368333}
   - component: {fileID: 6053685956017761487}
   - component: {fileID: 6333036543810177797}
+  - component: {fileID: -3718357684293574969}
   m_Layer: 0
   m_Name: HumanWoman
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -183,3 +184,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.18, y: 1.24}
   m_EdgeRadius: 0
+--- !u!111 &-3718357684293574969
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5240523516598913430}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 7400000, guid: 638a072ddee144d88a986899faa28f28, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: a55269734056a4826aa42ca0c5ff8555, type: 2}
+  - {fileID: 7400000, guid: 638a072ddee144d88a986899faa28f28, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
