@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PersonBounce : MonoBehaviour
@@ -51,8 +50,6 @@ public class PersonBounce : MonoBehaviour
             rb.AddForce(bounceForce, ForceMode.Impulse);
         }
         bounceForce.y /= 1.5f;
-
-        Debug.Log(rb.linearVelocity.magnitude);
     }
 
     private void SavePerson()
