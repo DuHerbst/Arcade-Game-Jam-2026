@@ -104,3 +104,19 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# Unity project folder ignores
+It's Raining Men/[Ll]ibrary/
+It's Raining Men/[Tt]emp/
+It's Raining Men/[Oo]bj/
+It's Raining Men/[Bb]uild/
+It's Raining Men/[Bb]uilds/
+It's Raining Men/[Ll]ogs/
+It's Raining Men/[Uu]ser[Ss]ettings/
+
+# IDE/cache folders inside Unity project
+It's Raining Men/.idea/
+It's Raining Men/.vs/
+It's Raining Men/.gradle/
+
+It's Raining Men/[Uu]ser[Ss]ettings/
