@@ -17,6 +17,11 @@ public class WomanHuman : HumanBase
 
     void Update()
     {
+        if (IsDead) // to stop floating!
+        {
+            return;
+        }
+        
         if (transform.position.x >= rightMax)
         {
             _floatDirection = -1;
@@ -26,7 +31,7 @@ public class WomanHuman : HumanBase
             _floatDirection = 1;
         }
         
-        rigidbodyHuman.linearVelocity = new Vector2(_floatDirection * floatSpeed, rigidbodyHuman.linearVelocity.y);
+        RigidbodyHuman.linearVelocity = new Vector2(_floatDirection * floatSpeed, RigidbodyHuman.linearVelocity.y);
         
     }
     
