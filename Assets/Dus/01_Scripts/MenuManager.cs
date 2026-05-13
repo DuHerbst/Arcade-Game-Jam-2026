@@ -14,7 +14,7 @@ public class MenuManager : MonoBehaviour
 
     public void SeeHighScores()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //need to create the scene for highcores
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
     public void QuitGame()

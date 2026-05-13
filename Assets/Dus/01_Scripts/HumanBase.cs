@@ -79,6 +79,12 @@ public class HumanBase : MonoBehaviour
             //Game Over, go to end game scene
         }
 
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Human has touched the trampoline");
+            RigidbodyHuman.linearVelocity = new Vector2(RigidbodyHuman.linearVelocity.x, RigidbodyHuman.linearVelocity.y * -1);
+        }
+
     }
     
 }

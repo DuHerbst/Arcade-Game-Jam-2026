@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3718357684293574969}
   m_Layer: 0
   m_Name: HumanWoman
-  m_TagString: Untagged
+  m_TagString: Person
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WomanHuman
   gravityScale: 0.3
   pointValue: 2
+  deadHuman: {fileID: 0}
   floatSpeed: 3
   leftMax: -3
   rightMax: 3
