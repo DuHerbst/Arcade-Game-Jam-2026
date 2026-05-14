@@ -326,7 +326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2303414031831050008, guid: c1050a6b45a904622adf889c3291d5a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.1
+      value: 2.28
       objectReference: {fileID: 0}
     - target: {fileID: 2303414031831050008, guid: c1050a6b45a904622adf889c3291d5a7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -827,6 +827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HumanSpawner
   humanPrefabs:
+<<<<<<< Updated upstream
   - {fileID: 5240523516598913430, guid: 594843e7460984d7d8ba641b20d51a2e, type: 3}
   - {fileID: 5240523516598913430, guid: 747a2c3ab521245018d23e1ca7237f6a, type: 3}
   spawnPoints:
@@ -837,6 +838,13 @@ MonoBehaviour:
   - {fileID: 882352582}
   maxHumansAlive: 6
   spawnRate: 1.2
+=======
+  - {fileID: 5240523516598913430, guid: e173dfd71a3bc814b85f652dac43e853, type: 3}
+  - {fileID: 5240523516598913430, guid: d3bbe0c3fa86e3d4f97a984326661198, type: 3}
+  spawnPoints: []
+  maxHumansAlive: 0
+  spawnRate: 0
+>>>>>>> Stashed changes
   warningSign: {fileID: 0}
   warningDuration: 0
 --- !u!4 &566950462
@@ -869,6 +877,10 @@ GameObject:
   m_Component:
   - component: {fileID: 618494072}
   - component: {fileID: 618494071}
+<<<<<<< Updated upstream
+=======
+  - component: {fileID: 618494073}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -890,7 +902,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   scoreText: {fileID: 549110235}
   highscoreText: {fileID: 0}
+<<<<<<< Updated upstream
   saveHighscores: {fileID: 0}
+=======
+  saveHighscores: {fileID: 618494073}
+>>>>>>> Stashed changes
   score: 0
 --- !u!4 &618494072
 Transform:
@@ -907,6 +923,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+=======
+--- !u!114 &618494073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618494070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f974ea327482484eb2dedc148c3dd30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveHighscores
+  gm: {fileID: 618494071}
+>>>>>>> Stashed changes
 --- !u!1 &634844098
 GameObject:
   m_ObjectHideFlags: 0
