@@ -49,7 +49,7 @@ public class HumanBase : MonoBehaviour
         Destroy(gameObject);
         
     }
-    
+    /*
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("ScoreZone"))
@@ -59,6 +59,7 @@ public class HumanBase : MonoBehaviour
             Destroy(gameObject);
         }
 
+        
         if (other.CompareTag("Ground"))
         {
             RigidbodyHuman.linearVelocity = Vector2.zero;
@@ -85,6 +86,12 @@ public class HumanBase : MonoBehaviour
             RigidbodyHuman.linearVelocity = new Vector2(RigidbodyHuman.linearVelocity.x, RigidbodyHuman.linearVelocity.y * -1);
         }
 
+    }*/
+
+    public void DeadPlayer()
+    {
+        //StartCoroutine(DeathCycle());
+        _humanSpawner.HumanDead();
     }
     
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5449452239397368333}
   - component: {fileID: 6053685956017761487}
   - component: {fileID: 6333036543810177797}
+  - component: {fileID: -1605993624497263073}
   m_Layer: 0
   m_Name: RegularGuy
   m_TagString: Person
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a655f37be91f4488e80302bcee0461a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RegularGuy
-  gravityScale: 0.5
+  gravityScale: 1
   pointValue: 1
   deadHuman: {fileID: 0}
 --- !u!212 &5449452239397368333
@@ -165,11 +166,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.015727311, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -179,5 +180,23 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.34483135, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-1605993624497263073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5240523516598913430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b68384c5112381344a9c96c9c557d62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersonBounce
+  rb: {fileID: 6053685956017761487}
+  bounceForce: {x: 0, y: 500}
+  direction: 0
+  scoreValue: 1
+  humanBase: {fileID: -2514608977326461865}
+  gm: {fileID: 0}
