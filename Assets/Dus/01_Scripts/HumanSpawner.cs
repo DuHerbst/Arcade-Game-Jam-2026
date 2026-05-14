@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class HumanSpawner : MonoBehaviour
 
@@ -8,6 +9,9 @@ public class HumanSpawner : MonoBehaviour
     [SerializeField] private int maxHumansAlive;
     [SerializeField] private float spawnRate;
     private int _currentHumansAlive;
+    
+    [SerializeField] private SpawnWarningSign warningSign; //reference to the warning sign script
+    [SerializeField] private float warningDuration;
     
     private float _spawnTimer;
     private GameObject _newHuman;
@@ -20,24 +24,34 @@ public class HumanSpawner : MonoBehaviour
             _spawnTimer += Time.deltaTime;
             if (_spawnTimer >= spawnRate)
             {
-                SpawnHuman();
+                StartCoroutine(SpawnHuman());
                 _spawnTimer = 0f;
             }
         }
         
     }
 
-    void SpawnHuman()
+    IEnumerator SpawnHuman()
     {
         
         if (_currentHumansAlive >= maxHumansAlive)
         {
-            return;
+            yield break;
         }
         
+        Transform selectedSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+
+        if (warningSign != null)
+        {
+            warningSign.transform.position = selectedSpawnPoint.position;
+            warningSign.ShowWarning(warningDuration);
+        }
+        
+        yield return new WaitForSeconds(warningDuration);
+        
         _newHuman = Instantiate
-            (humanPrefabs[Random.Range(0, humanPrefabs.Length)],
-                spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+        (humanPrefabs[Random.Range(0, humanPrefabs.Length)],
+            selectedSpawnPoint.position, Quaternion.identity); // random humans from pool into random spawn points
         
         _humanBase = _newHuman.GetComponent<HumanBase>(); //reference!!
 
