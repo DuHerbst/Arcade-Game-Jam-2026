@@ -49,7 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RegularGuy
   gravityScale: 0.5
   pointValue: 1
+  bounceForce: {x: 0, y: 15}
   deadHuman: {fileID: 0}
+  gm: {fileID: 0}
 --- !u!212 &5449452239397368333
 SpriteRenderer:
   m_ObjectHideFlags: 0

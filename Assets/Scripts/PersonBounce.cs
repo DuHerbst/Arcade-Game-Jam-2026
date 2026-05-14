@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class PersonBounce : MonoBehaviour
 {
-    [SerializeField] private Rigidbody rb;
+    [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Vector3 bounceForce;
     [SerializeField] private float direction;
     [SerializeField] private float scoreValue;
 
+    [SerializeField] private HumanBase humanBase;
+
     [SerializeField] private GameManager gm;
     
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Wall")) return;
 
@@ -20,12 +22,11 @@ public class PersonBounce : MonoBehaviour
                 SavePerson();
                 return;
             }
-            
-            LetThemDie();
         }
         
         if (col.gameObject.CompareTag("Player"))
         {
+            Debug.Log("hi");
             if (bounceForce.y < 10)
             {
                 scoreValue *= 2;
@@ -36,7 +37,8 @@ public class PersonBounce : MonoBehaviour
             if (transform.position.x < col.gameObject.transform.position.x)
             {
                 direction = -1;
-            } else if (transform.position.x == col.transform.position.x)
+            } 
+            else if (transform.position.x == col.transform.position.x)
             {
                 direction = 0;
             }
@@ -47,7 +49,7 @@ public class PersonBounce : MonoBehaviour
             
             bounceForce.x = direction;
             
-            rb.AddForce(bounceForce, ForceMode.Impulse);
+            rb.AddForce(bounceForce);
         }
         bounceForce.y /= 1.5f;
     }

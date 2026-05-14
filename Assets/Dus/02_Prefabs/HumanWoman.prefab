@@ -50,7 +50,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WomanHuman
   gravityScale: 0.3
   pointValue: 2
+  bounceForce: {x: 0, y: 15}
   deadHuman: {fileID: 0}
+  gm: {fileID: 0}
   floatSpeed: 3
   leftMax: -3
   rightMax: 3
