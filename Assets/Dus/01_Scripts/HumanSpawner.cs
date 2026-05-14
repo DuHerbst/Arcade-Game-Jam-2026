@@ -19,7 +19,7 @@ public class HumanSpawner : MonoBehaviour
 
     void Update()
     {
-        if (_currentHumansAlive < maxHumansAlive)
+        if (1 == 1)
         {
             _spawnTimer += Time.deltaTime;
             if (_spawnTimer >= spawnRate)

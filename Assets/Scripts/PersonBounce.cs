@@ -50,7 +50,7 @@ public class PersonBounce : MonoBehaviour
             rb.angularVelocity = 0f;
             rb.gravityScale = 0f;
             
-            if (bounceForce.y < 150)
+            if (bounceForce.y < 250)
             {
                 SavePerson();
                 return;
@@ -66,7 +66,7 @@ public class PersonBounce : MonoBehaviour
             gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         
         gm.IncreaseScore(scoreValue);
-        humanBase.DeadPlayer();
+        //humanBase.DeadPlayer();
         Destroy(gameObject);
     }
 
@@ -76,7 +76,7 @@ public class PersonBounce : MonoBehaviour
             gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         
         gm.SomeoneDied();
-        humanBase.DeadPlayer();
+        //humanBase.DeadPlayer();
         Destroy(gameObject);
     }
 }
