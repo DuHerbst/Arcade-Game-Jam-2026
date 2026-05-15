@@ -8,7 +8,7 @@ public class SaveHighscores : MonoBehaviour
 
     void Awake()
     {
-        highscores = new float[10];
+        highscores = new float[5];
         LoadScores();
     }
 

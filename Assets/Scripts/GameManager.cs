@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     public void Test()
     {
         score = 0;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
     }
 
     public void LoadScores(float[] highscores)
