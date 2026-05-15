@@ -814,12 +814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersonSpawner
   timeLimit: 2
-  person:
-  - {fileID: 7527064362032675645, guid: 25e022ce805a01149a80ec22d79aca84, type: 3}
-  - {fileID: 7527064362032675645, guid: 4d66d5675c0290a498eb7a3f944add50, type: 3}
-  - {fileID: 7527064362032675645, guid: 4f2ed7b5f83c2174ba9774347d50a315, type: 3}
-  - {fileID: 7527064362032675645, guid: a9e3b67520b61be409184d1b3d0f041d, type: 3}
-  - {fileID: 7527064362032675645, guid: 37c9ca5e851767a4d8dfbbb5ff3d6f92, type: 3}
+  person: {fileID: 7527064362032675645, guid: 25e022ce805a01149a80ec22d79aca84, type: 3}
   spawnPoint: {x: 0, y: 5, z: 0}
   canSpawn: 1
 --- !u!1 &1220321911
@@ -1356,7 +1351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrampolineMovement
   rb: {fileID: 1044088731}
-  speed: 750
+  speed: 500
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

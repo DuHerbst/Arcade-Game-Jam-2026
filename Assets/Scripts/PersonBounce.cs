@@ -6,8 +6,15 @@ public class PersonBounce : MonoBehaviour
     [SerializeField] private Vector3 bounceForce;
     [SerializeField] private float direction;
     [SerializeField] private float scoreValue;
+    [SerializeField] private BoxCollider personCollider;
 
+    [SerializeField] private SpriteRenderer personSprite;
+    [SerializeField] private Sprite fallingSprite;
+    [SerializeField] private Sprite deadSprite;
+    [SerializeField] private Sprite standingSprite;
+    
     [SerializeField] private GameManager gm;
+    private Vector3 stopMovement;
     
     void OnCollisionEnter(Collision col)
     {
@@ -19,13 +26,14 @@ public class PersonBounce : MonoBehaviour
             if (bounceForce.y < 10)
             {
                 scoreValue *= 2;
-                SavePerson();
+                personCollider.isTrigger = true;
                 return;
             }
             
             if (transform.position.x < col.gameObject.transform.position.x)
             {
                 direction = -1;
+                personSprite.flipX = true;
             } 
             else if (transform.position.x == col.transform.position.x)
             {
@@ -34,6 +42,7 @@ public class PersonBounce : MonoBehaviour
             else
             {
                 direction = 1;
+                personSprite.flipX = false;
             }
             
             bounceForce.x = direction;
@@ -62,8 +71,9 @@ public class PersonBounce : MonoBehaviour
         if (gm == null)
             gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         
+        StopFalling();
         gm.IncreaseScore(scoreValue);
-        Destroy(gameObject);
+        personSprite.sprite = standingSprite;
     }
 
     private void LetThemDie()
@@ -71,7 +81,21 @@ public class PersonBounce : MonoBehaviour
         if (gm == null)
             gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         
+        StopFalling();
         gm.SomeoneDied();
-        Destroy(gameObject);
+        personSprite.sprite = deadSprite;
+    }
+
+    private void StopFalling()
+    {
+        //Making it so they cant touch ppl who have hit the ground
+        personCollider.isTrigger = true;
+        
+        //stopping their movement completely
+        rb.useGravity = false;
+        rb.linearVelocity = stopMovement;
+        rb.angularVelocity = stopMovement;
+
+        gameObject.transform.rotation = new Quaternion(0,0,0,0);
     }
 }

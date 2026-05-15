@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -23,6 +24,12 @@ public class GameManager : MonoBehaviour
     public void SomeoneDied()
     {
         saveHighscores.CheckScore(score);
+        StartCoroutine(DeathTimer(1));
+    }
+
+    private IEnumerator DeathTimer(float timer)
+    {
+        yield return new WaitForSeconds(timer);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

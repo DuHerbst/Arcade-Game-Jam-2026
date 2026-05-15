@@ -4,7 +4,7 @@ using UnityEngine;
 public class PersonSpawner : MonoBehaviour
 {
     [SerializeField] private float timeLimit;
-    [SerializeField] private GameObject person;
+    [SerializeField] private GameObject[] person;
     [SerializeField] private Vector3 spawnPoint;
     [SerializeField] private bool canSpawn;
 
@@ -25,6 +25,6 @@ public class PersonSpawner : MonoBehaviour
     private void SpawnDude()
     {
         spawnPoint.x = Random.Range(-10, 10);
-        Instantiate(person, spawnPoint, Quaternion.identity);
+        Instantiate(person[Random.Range(0, person.Length)], spawnPoint, Quaternion.identity);
     }
 }

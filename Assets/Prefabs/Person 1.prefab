@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3582582625163634537}
   - component: {fileID: 6664990510753066872}
   m_Layer: 0
-  m_Name: Person
+  m_Name: Person 1
   m_TagString: Person
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,9 +101,9 @@ MonoBehaviour:
   scoreValue: 1
   personCollider: {fileID: 4585502936257519347}
   personSprite: {fileID: 6664990510753066872}
-  fallingSprite: {fileID: -162591145, guid: c339044e02bd85748b454ca7145c5f81, type: 3}
-  deadSprite: {fileID: -2082403102, guid: c339044e02bd85748b454ca7145c5f81, type: 3}
-  standingSprite: {fileID: -693831416, guid: c339044e02bd85748b454ca7145c5f81, type: 3}
+  fallingSprite: {fileID: 564515744, guid: 2cf586b252201df46865469a84fb9092, type: 3}
+  deadSprite: {fileID: -82675558, guid: 2cf586b252201df46865469a84fb9092, type: 3}
+  standingSprite: {fileID: 486364027, guid: 2cf586b252201df46865469a84fb9092, type: 3}
   gm: {fileID: 0}
 --- !u!212 &6664990510753066872
 SpriteRenderer:
@@ -152,7 +152,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -162591145, guid: c339044e02bd85748b454ca7145c5f81, type: 3}
+  m_Sprite: {fileID: 564515744, guid: 2cf586b252201df46865469a84fb9092, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
