@@ -64,6 +64,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PickLetter",
+                    "type": "Button",
+                    "id": "8a00cab4-7a6e-474a-a630-300484c3ba9d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -99,6 +108,17 @@
                     "action": "Selector",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "a09917d0-c5f0-4d9d-86f1-5a9309e184cf",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PickLetter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

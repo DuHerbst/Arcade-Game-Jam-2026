@@ -3,12 +3,15 @@ using UnityEngine;
 public class SaveHighscores : MonoBehaviour
 {
     [SerializeField] private GameManager gm;
+    [SerializeField] private NameSelector nameSelector;
     private float currentArrayPosition;
     private float[] highscores;
+    private string[] names;
 
     void Awake()
     {
         highscores = new float[5];
+        names = new string[5];
         LoadScores();
     }
 
@@ -24,20 +27,24 @@ public class SaveHighscores : MonoBehaviour
                 
                 highscores[i] = highscores[i - 1];
                 PlayerPrefs.SetFloat($"Highscore{i}", highscores[i]);
+                names[i] = names[i - 1];
+                PlayerPrefs.SetString($"Name{i}", names[i]);
 
                 if (i != j) continue;
                 
                 highscores[i] = currentScore; 
+                nameSelector.NewName();
                 break;
             }
-            SaveScore(currentScore, j);
+            SaveScore(currentScore, j, nameSelector.SetLetters);
             break;
         }
     }
     
-    public void SaveScore(float currentScore, float position)
+    public void SaveScore(float currentScore, float position, string name)
     {
         PlayerPrefs.SetFloat($"Highscore{position}", currentScore);
+        PlayerPrefs.SetString($"Name{position}", name);
         PlayerPrefs.Save();
     }
 
@@ -46,8 +53,9 @@ public class SaveHighscores : MonoBehaviour
         for (int i = 0; i < highscores.Length; i++)
         {
             highscores[i] = PlayerPrefs.GetFloat($"Highscore{i}");
+            //names[i] = PlayerPrefs.GetString($"Name{i}");
         }
         
-        gm.LoadScores(highscores);
+        gm.LoadScores(highscores, names);
     }
 }
