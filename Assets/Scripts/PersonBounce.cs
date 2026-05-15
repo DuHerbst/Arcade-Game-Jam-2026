@@ -3,20 +3,31 @@ using UnityEngine;
 public class PersonBounce : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Vector2 bounceForce;
+    [SerializeField] private Vector3 bounceForce;
     [SerializeField] private float direction;
     [SerializeField] private float scoreValue;
 
-    [SerializeField] private HumanBase humanBase;
+    
+
     [SerializeField] private GameManager gm;
     
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Wall")) return;
+
+        if (col.gameObject.CompareTag("Ground"))
+        {
+            if (bounceForce.y < 11)
+            {
+                SavePerson();
+                return;
+            }
+        }
         
         if (col.gameObject.CompareTag("Player"))
         {
-            if (bounceForce.y < 100)
+            Debug.Log("hi");
+            if (bounceForce.y < 10)
             {
                 scoreValue *= 2;
                 SavePerson();
@@ -26,7 +37,8 @@ public class PersonBounce : MonoBehaviour
             if (transform.position.x < col.gameObject.transform.position.x)
             {
                 direction = -1;
-            } else if (transform.position.x == col.transform.position.x)
+            } 
+            else if (transform.position.x == col.transform.position.x)
             {
                 direction = 0;
             }
@@ -35,29 +47,11 @@ public class PersonBounce : MonoBehaviour
                 direction = 1;
             }
             
-            bounceForce.x *= direction;
+            bounceForce.x = direction;
             
             rb.AddForce(bounceForce);
         }
         bounceForce.y /= 1.5f;
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Ground"))
-        {
-            rb.linearVelocity = Vector2.zero;
-            rb.angularVelocity = 0f;
-            rb.gravityScale = 0f;
-            
-            if (bounceForce.y < 250)
-            {
-                SavePerson();
-                return;
-            }
-            
-            LetThemDie();
-        }
     }
 
     private void SavePerson()
@@ -66,7 +60,6 @@ public class PersonBounce : MonoBehaviour
             gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         
         gm.IncreaseScore(scoreValue);
-        //humanBase.DeadPlayer();
         Destroy(gameObject);
     }
 
@@ -76,7 +69,6 @@ public class PersonBounce : MonoBehaviour
             gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         
         gm.SomeoneDied();
-        //humanBase.DeadPlayer();
         Destroy(gameObject);
     }
 }
