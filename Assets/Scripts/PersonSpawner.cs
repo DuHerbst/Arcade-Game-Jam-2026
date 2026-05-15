@@ -24,7 +24,7 @@ public class PersonSpawner : MonoBehaviour
 
     private void SpawnDude()
     {
-        spawnPoint.x = Random.Range(-10, 10);
+        spawnPoint.x = Random.Range(-8, 8);
         Instantiate(person[Random.Range(0, person.Length)], spawnPoint, Quaternion.identity);
     }
 }
