@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PersonBounce : MonoBehaviour
@@ -12,6 +13,7 @@ public class PersonBounce : MonoBehaviour
     [SerializeField] private Sprite fallingSprite;
     [SerializeField] private Sprite deadSprite;
     [SerializeField] private Sprite standingSprite;
+    [SerializeField] private PersonWalkAway personWalkAway;
     
     [SerializeField] private GameManager gm;
     private Vector3 stopMovement;
@@ -22,7 +24,6 @@ public class PersonBounce : MonoBehaviour
         
         if (col.gameObject.CompareTag("Player"))
         {
-            Debug.Log("hi");
             if (bounceForce.y < 10)
             {
                 scoreValue *= 2;
@@ -74,6 +75,7 @@ public class PersonBounce : MonoBehaviour
         StopFalling();
         gm.IncreaseScore(scoreValue);
         personSprite.sprite = standingSprite;
+        StartCoroutine(walkTimer(0.5f));
     }
 
     private void LetThemDie()
@@ -96,6 +98,13 @@ public class PersonBounce : MonoBehaviour
         rb.linearVelocity = stopMovement;
         rb.angularVelocity = stopMovement;
 
+        //Locking their rotation so they're upright
         gameObject.transform.rotation = new Quaternion(0,0,0,0);
+    }
+
+    private IEnumerator walkTimer(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+        personWalkAway.enabled = true;
     }
 }

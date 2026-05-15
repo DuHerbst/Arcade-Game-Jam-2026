@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8388453542673284493}
   - component: {fileID: 3582582625163634537}
   - component: {fileID: 6664990510753066872}
+  - component: {fileID: 4326628430581164883}
   m_Layer: 0
   m_Name: Person
   m_TagString: Person
@@ -81,7 +82,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 8
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!114 &3582582625163634537
 MonoBehaviour:
@@ -104,6 +105,7 @@ MonoBehaviour:
   fallingSprite: {fileID: -162591145, guid: c339044e02bd85748b454ca7145c5f81, type: 3}
   deadSprite: {fileID: -2082403102, guid: c339044e02bd85748b454ca7145c5f81, type: 3}
   standingSprite: {fileID: -693831416, guid: c339044e02bd85748b454ca7145c5f81, type: 3}
+  personWalkAway: {fileID: 4326628430581164883}
   gm: {fileID: 0}
 --- !u!212 &6664990510753066872
 SpriteRenderer:
@@ -163,3 +165,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4326628430581164883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7527064362032675645}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021a198809974914999263782552a318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersonWalkAway
+  rb: {fileID: 8388453542673284493}
+  walkSpeed: {x: 5, y: 0, z: 0}

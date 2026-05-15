@@ -9,11 +9,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text highscoreText;
     [SerializeField] private SaveHighscores saveHighscores;
     public float score;
-
-    void Start() 
-    {
-        Debug.Log(score);
-    }
     
     public void IncreaseScore(float value)
     {
