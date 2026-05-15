@@ -106,4 +106,4 @@ MonoBehaviour:
   warningSprite: {fileID: 1295808079739506092}
   yellow: {fileID: 21300000, guid: 70d2ecaa5e358d44299d28f41fca6f0b, type: 3}
   red: {fileID: 21300000, guid: 151cc6e6c4b2b3c4d86f3e583c5994ce, type: 3}
-  waitTimer: 1
+  waitTimer: 0.25
