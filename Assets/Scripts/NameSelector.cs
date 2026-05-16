@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class NameSelector : MonoBehaviour
@@ -12,6 +13,8 @@ public class NameSelector : MonoBehaviour
 
     private int letterCounter;
 
+    [SerializeField] private SaveHighscores saveHighscores;
+    
     public string SetLetters
     {
         get => setLetters;
@@ -27,10 +30,15 @@ public class NameSelector : MonoBehaviour
 
     void Update()
     {
-        if (letterCounter < 3 && setName)
+        if (letterCounter < 3)
         {
             nameText.text = setLetters + characters[(int)currentLetter];
+            return;
         }
+        
+        PlayerPrefs.SetString("newName", setLetters);
+        saveHighscores.MovePositions(PlayerPrefs.GetFloat("currentScore"), PlayerPrefs.GetInt("position"));
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     public void OnSelector(InputValue value)

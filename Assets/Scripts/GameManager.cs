@@ -19,17 +19,17 @@ public class GameManager : MonoBehaviour
 
     public void SomeoneDied()
     {
-        saveHighscores.CheckScore(score);
+        //saveHighscores.CheckScore(score);
         StartCoroutine(DeathTimer(1));
     }
 
     private IEnumerator DeathTimer(float timer)
     {
         yield return new WaitForSeconds(timer);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        saveHighscores.CheckScore(score);
     }
 
-    public void Test()
+    public void ReturnToStart()
     {
         score = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < highscores.Length; i++)
         {
             highscoreText.text += $"{highscores[i]}\n";
-            //namesText.text += $"{names[i]}\n";
+            namesText.text += $"{names[i]}\n";
         }
     }
 }
