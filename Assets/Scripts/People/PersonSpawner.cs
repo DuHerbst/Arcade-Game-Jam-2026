@@ -9,7 +9,7 @@ public class PersonSpawner : MonoBehaviour
     [SerializeField] private bool canSpawn;
     [SerializeField] private GameObject spawnWarningPrefab;
     private GameObject spawnWarning;
-    [SerializeField, Range(0.2f, 5f)] private float spawnWarningTime = 3f;
+    [SerializeField, Range(0.2f, 5f)] private float spawnWarningTime;
     void Update()
     {
         if(canSpawn)
