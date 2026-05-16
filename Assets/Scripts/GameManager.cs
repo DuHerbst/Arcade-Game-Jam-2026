@@ -11,13 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SaveHighscores saveHighscores;
     public float score;
 
-    private BackgroundMusic bgMusic;
-
-    void Awake()
-    {
-        bgMusic = GameObject.FindGameObjectWithTag("Music").GetComponent<BackgroundMusic>();
-        bgMusic.PlayMusic();
-    }
+    [SerializeField] private AudioSource bgMusic;
     
     public void IncreaseScore(float value)
     {
@@ -32,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator DeathTimer(float timer)
     {
-        bgMusic.StopMusic();
+        bgMusic.Stop();
         yield return new WaitForSeconds(timer);
         saveHighscores.CheckScore(score);
     }

@@ -9,6 +9,8 @@ public class PersonBounce : MonoBehaviour
     [SerializeField] private float scoreValue;
     [SerializeField] private BoxCollider personCollider;
 
+    [Space (20)]
+    [Header ("Sprite Shit")]
     [SerializeField] private SpriteRenderer personSprite;
     [SerializeField] private Sprite fallingSprite;
     [SerializeField] private Sprite deadSprite;
@@ -16,6 +18,13 @@ public class PersonBounce : MonoBehaviour
     [SerializeField] private Sprite savedSprite;
     [SerializeField] private Sprite hitSprite;
     [SerializeField] private PersonWalkAway personWalkAway;
+    
+    [Space(20)]
+    [Header("SFX Shit")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip bounceSound;
+    [SerializeField] private AudioClip collideSound;
+    [SerializeField] private AudioClip deathSound;
     
     [SerializeField] private GameManager gm;
     private Vector3 stopMovement;
@@ -58,6 +67,8 @@ public class PersonBounce : MonoBehaviour
             rb.AddForce(bounceForce, ForceMode.Impulse);
 
             personSprite.sprite = savedSprite;
+            
+            audioSource.PlayOneShot(bounceSound);
         }
 
         if (col.gameObject.CompareTag("Person"))
@@ -68,7 +79,10 @@ public class PersonBounce : MonoBehaviour
                 personSprite.flipX = false;
             else
                 personSprite.flipX = true;
+            
+            audioSource.PlayOneShot(collideSound);
         }
+        
         bounceForce.y /= 1.5f;
     }
 
@@ -101,6 +115,8 @@ public class PersonBounce : MonoBehaviour
     private void LetThemDie()
     {
         StopFalling();
+        
+        audioSource.PlayOneShot(deathSound);
         
         if (gm == null)
             gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();

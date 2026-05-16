@@ -1283,7 +1283,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827639852}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -1446,6 +1446,7 @@ MonoBehaviour:
   namesText: {fileID: 159018160}
   saveHighscores: {fileID: 1827639855}
   score: 0
+  bgMusic: {fileID: 1827639853}
 --- !u!114 &1827639857
 MonoBehaviour:
   m_ObjectHideFlags: 0
