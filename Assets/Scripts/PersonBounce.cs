@@ -13,10 +13,17 @@ public class PersonBounce : MonoBehaviour
     [SerializeField] private Sprite fallingSprite;
     [SerializeField] private Sprite deadSprite;
     [SerializeField] private Sprite standingSprite;
+    [SerializeField] private Sprite savedSprite;
+    [SerializeField] private Sprite hitSprite;
     [SerializeField] private PersonWalkAway personWalkAway;
     
     [SerializeField] private GameManager gm;
     private Vector3 stopMovement;
+
+    void Start()
+    {
+        personSprite.sprite = fallingSprite;
+    }
     
     void OnCollisionEnter(Collision col)
     {
@@ -49,6 +56,18 @@ public class PersonBounce : MonoBehaviour
             bounceForce.x = direction;
             
             rb.AddForce(bounceForce, ForceMode.Impulse);
+
+            personSprite.sprite = savedSprite;
+        }
+
+        if (col.gameObject.CompareTag("Person"))
+        {
+            personSprite.sprite = hitSprite;
+
+            if (col.gameObject.transform.position.x < transform.position.x)
+                personSprite.flipX = false;
+            else
+                personSprite.flipX = true;
         }
         bounceForce.y /= 1.5f;
     }

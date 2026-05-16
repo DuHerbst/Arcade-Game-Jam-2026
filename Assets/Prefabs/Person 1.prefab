@@ -82,8 +82,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 56
-  m_CollisionDetection: 0
+  m_Constraints: 120
+  m_CollisionDetection: 1
 --- !u!114 &3582582625163634537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,9 +102,11 @@ MonoBehaviour:
   scoreValue: 1
   personCollider: {fileID: 4585502936257519347}
   personSprite: {fileID: 6664990510753066872}
-  fallingSprite: {fileID: 564515744, guid: 2cf586b252201df46865469a84fb9092, type: 3}
+  fallingSprite: {fileID: 1605027827, guid: 2cf586b252201df46865469a84fb9092, type: 3}
   deadSprite: {fileID: -82675558, guid: 2cf586b252201df46865469a84fb9092, type: 3}
   standingSprite: {fileID: 486364027, guid: 2cf586b252201df46865469a84fb9092, type: 3}
+  savedSprite: {fileID: 455736024, guid: 2cf586b252201df46865469a84fb9092, type: 3}
+  hitSprite: {fileID: 673544126, guid: 2cf586b252201df46865469a84fb9092, type: 3}
   personWalkAway: {fileID: -517776509021067351}
   gm: {fileID: 0}
 --- !u!212 &6664990510753066872
@@ -155,7 +157,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 564515744, guid: 2cf586b252201df46865469a84fb9092, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.78113204, g: 0.78113204, b: 0.78113204, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
