@@ -6,6 +6,11 @@ public class MenuManager : MonoBehaviour
 // to manage the start screen and buttons
 
 {
+
+    void Awake()
+    {
+        GameObject.FindGameObjectWithTag("Music").GetComponent<BackgroundMusic>().PlayMusic();
+    }
     
     public void StartGame()
     {

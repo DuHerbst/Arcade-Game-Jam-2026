@@ -51,8 +51,8 @@ Material:
     - _SrcBlend: 5
     - _SrcBlendAlpha: 1
     - _Surface: 1
-    - _WindFrequency: 1
-    - _WindSpeed: 2
+    - _WindFrequency: 2
+    - _WindSpeed: 1
     - _WindStrength: 0.1
     - _XRMotionVectorsPass: 1
     - _ZWrite: 0

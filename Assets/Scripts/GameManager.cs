@@ -10,6 +10,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text namesText;
     [SerializeField] private SaveHighscores saveHighscores;
     public float score;
+
+    private BackgroundMusic bgMusic;
+
+    void Awake()
+    {
+        bgMusic = GameObject.FindGameObjectWithTag("Music").GetComponent<BackgroundMusic>();
+        bgMusic.PlayMusic();
+    }
     
     public void IncreaseScore(float value)
     {
@@ -19,12 +27,12 @@ public class GameManager : MonoBehaviour
 
     public void SomeoneDied()
     {
-        //saveHighscores.CheckScore(score);
         StartCoroutine(DeathTimer(1));
     }
 
     private IEnumerator DeathTimer(float timer)
     {
+        bgMusic.StopMusic();
         yield return new WaitForSeconds(timer);
         saveHighscores.CheckScore(score);
     }
