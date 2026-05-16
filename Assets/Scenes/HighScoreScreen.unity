@@ -679,6 +679,7 @@ MonoBehaviour:
   - Z
   - 
   nameText: {fileID: 1884262099}
+  saveHighscores: {fileID: 0}
 --- !u!114 &987171700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1099,7 +1100,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: -14.8}
+  m_AnchoredPosition: {x: 30, y: -17}
   m_SizeDelta: {x: 490.6, y: 449.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1466734571
@@ -1124,8 +1125,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6efd2c4c822449c4e9003fee49b1a1fd, type: 2}
+  m_sharedMaterial: {fileID: -5402406924536043977, guid: 6efd2c4c822449c4e9003fee49b1a1fd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1161,7 +1162,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 30
+  m_lineSpacing: 33
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -1235,7 +1236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -250, y: -14.8}
+  m_AnchoredPosition: {x: -250, y: -17}
   m_SizeDelta: {x: 490.6, y: 449.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1586516901
@@ -1260,8 +1261,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6efd2c4c822449c4e9003fee49b1a1fd, type: 2}
+  m_sharedMaterial: {fileID: -5402406924536043977, guid: 6efd2c4c822449c4e9003fee49b1a1fd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1297,7 +1298,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 30
+  m_lineSpacing: 33
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -1578,7 +1579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1884262098
 RectTransform:
   m_ObjectHideFlags: 0
