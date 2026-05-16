@@ -53,7 +53,7 @@ public class WindController : MonoBehaviour
 
        if (_windMaterial == null)
        {
-           _windMaterial = _spriteRenderer.material;
+           _windMaterial = _spriteRenderer.sharedMaterial;
        }
 
        if (_windMaterial == null)

@@ -7,59 +7,59 @@ public class NameSelector : MonoBehaviour
 {
     [SerializeField] private string[] characters;
     [SerializeField] private TMP_Text nameText;
-    private float currentLetter;
-    private string setLetters;
-    private bool setName;
+    private float _currentLetter;
+    private string _setLetters;
+    private bool _setName;
 
-    private int letterCounter;
+    private int _letterCounter;
 
     [SerializeField] private SaveHighscores saveHighscores;
     
     public string SetLetters
     {
-        get => setLetters;
+        get => _setLetters;
     }
 
     void Start()
     {
-        setName = false;
-        setLetters = "";
-        letterCounter = 0;
-        currentLetter = 0;
+        _setName = false;
+        _setLetters = "";
+        _letterCounter = 0;
+        _currentLetter = 0;
     }
 
     void Update()
     {
-        if (letterCounter < 3)
+        if (_letterCounter < 3)
         {
-            nameText.text = setLetters + characters[(int)currentLetter];
+            nameText.text = _setLetters + characters[(int)_currentLetter];
             return;
         }
         
-        PlayerPrefs.SetString("newName", setLetters);
+        PlayerPrefs.SetString("newName", _setLetters);
         saveHighscores.MovePositions(PlayerPrefs.GetFloat("currentScore"), PlayerPrefs.GetInt("position"));
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     public void OnSelector(InputValue value)
     {
-        currentLetter += value.Get<float>();
+        _currentLetter += value.Get<float>();
 
-        if (currentLetter < 0)
-            currentLetter = 27;
-        if (currentLetter > 27)
-            currentLetter = 0;
+        if (_currentLetter < 0)
+            _currentLetter = 27;
+        if (_currentLetter > 27)
+            _currentLetter = 0;
     }
 
     public void OnPickLetter()
     {
-        setLetters += characters[(int)currentLetter];
-        currentLetter = 0;
-        letterCounter++;
+        _setLetters += characters[(int)_currentLetter];
+        _currentLetter = 0;
+        _letterCounter++;
     }
 
     public void NewName()
     {
-        setName = true;
+        _setName = true;
     }
 }

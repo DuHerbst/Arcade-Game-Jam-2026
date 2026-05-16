@@ -18,7 +18,7 @@ public class PersonBounce : MonoBehaviour
     [SerializeField] private PersonWalkAway personWalkAway;
     
     [SerializeField] private GameManager gm;
-    private Vector3 stopMovement;
+    private Vector3 _stopMovement;
 
     void Start()
     {
@@ -74,6 +74,8 @@ public class PersonBounce : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Touched trigger: " + other.gameObject.name + " / Tag: " + other.gameObject.tag);
+        
         if (other.gameObject.CompareTag("Ground"))
         {
             if (bounceForce.y < 11)
@@ -95,7 +97,7 @@ public class PersonBounce : MonoBehaviour
         
         gm.IncreaseScore(scoreValue);
         personSprite.sprite = standingSprite;
-        StartCoroutine(walkTimer(0.5f));
+        StartCoroutine(WalkTimer(0.5f));
     }
 
     private void LetThemDie()
@@ -116,14 +118,14 @@ public class PersonBounce : MonoBehaviour
         
         //stopping their movement completely
         rb.useGravity = false;
-        rb.linearVelocity = stopMovement;
-        rb.angularVelocity = stopMovement;
+        rb.linearVelocity = _stopMovement;
+        rb.angularVelocity = _stopMovement;
 
         //Locking their rotation so they're upright
         gameObject.transform.rotation = new Quaternion(0,0,0,0);
     }
 
-    private IEnumerator walkTimer(float timer)
+    private IEnumerator WalkTimer(float timer)
     {
         yield return new WaitForSeconds(timer);
         personWalkAway.enabled = true;

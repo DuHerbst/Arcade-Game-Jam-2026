@@ -11,12 +11,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SaveHighscores saveHighscores;
     public float score;
 
-    private BackgroundMusic bgMusic;
+    private BackgroundMusic _bgMusic;
 
     void Awake()
     {
-        bgMusic = GameObject.FindGameObjectWithTag("Music").GetComponent<BackgroundMusic>();
-        bgMusic.PlayMusic();
+        _bgMusic = GetComponent<BackgroundMusic>();
+        _bgMusic.PlayMusic();
     }
     
     public void IncreaseScore(float value)
@@ -32,7 +32,11 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator DeathTimer(float timer)
     {
-        bgMusic.StopMusic();
+        Debug.Log("DeathTimer started");
+        Debug.Log("bgMusic is: " + _bgMusic);
+        Debug.Log("saveHighscores is: " + saveHighscores);
+        
+        _bgMusic.StopMusic();
         yield return new WaitForSeconds(timer);
         saveHighscores.CheckScore(score);
     }
@@ -40,7 +44,7 @@ public class GameManager : MonoBehaviour
     public void ReturnToStart()
     {
         score = 0;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+        SceneManager.LoadScene(0);
     }
 
     public void LoadScores(float[] highscores, string[] names)

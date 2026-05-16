@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6664990510753066872}
   - component: {fileID: -5248487824293330801}
   m_Layer: 0
-  m_Name: Object
+  m_Name: Chair_Object
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   rb: {fileID: 8388453542673284493}
   bounceForce: {x: 0, y: 10, z: 0}
   direction: 0
-  scoreValue: 2
+  scoreValue: 5
   objectCollider: {fileID: 4585502936257519347}
   objectSprite: {fileID: 6664990510753066872}
   brokenSprite: {fileID: 21300000, guid: dd357070f0ea301429ed568b1dac4064, type: 3}

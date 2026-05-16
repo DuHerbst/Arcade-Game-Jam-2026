@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 3689622027388528410}
   - component: {fileID: 4585502936257519347}
   - component: {fileID: 8388453542673284493}
+  - component: {fileID: 3582582625163634537}
   - component: {fileID: 6664990510753066872}
-  - component: {fileID: 6059585134524769734}
+  - component: {fileID: 5397265064812699458}
   m_Layer: 0
-  m_Name: Object 2
-  m_TagString: Object
+  m_Name: Dude_2
+  m_TagString: Person
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,8 +55,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.9669498, y: 1.4181383, z: 0.3}
-  m_Center: {x: 0.0025647879, y: -0.19490482, z: 0}
+  m_Size: {x: 0.3, y: 0.3, z: 0.3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8388453542673284493
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -64,7 +65,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7527064362032675645}
   serializedVersion: 5
-  m_Mass: 2
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -83,6 +84,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 1
+--- !u!114 &3582582625163634537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7527064362032675645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b68384c5112381344a9c96c9c557d62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersonBounce
+  rb: {fileID: 8388453542673284493}
+  bounceForce: {x: 0, y: 15, z: 0}
+  direction: 0
+  scoreValue: 1
+  personCollider: {fileID: 4585502936257519347}
+  personSprite: {fileID: 6664990510753066872}
+  fallingSprite: {fileID: -1084496435, guid: 6acd50ee91dc29d42bac55fe6cdb2f1a, type: 3}
+  deadSprite: {fileID: 458884552, guid: 6acd50ee91dc29d42bac55fe6cdb2f1a, type: 3}
+  standingSprite: {fileID: 1771025089, guid: 6acd50ee91dc29d42bac55fe6cdb2f1a, type: 3}
+  savedSprite: {fileID: 1778575985, guid: 6acd50ee91dc29d42bac55fe6cdb2f1a, type: 3}
+  hitSprite: {fileID: 1681076396, guid: 6acd50ee91dc29d42bac55fe6cdb2f1a, type: 3}
+  personWalkAway: {fileID: 5397265064812699458}
+  gm: {fileID: 0}
 --- !u!212 &6664990510753066872
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -130,7 +156,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: e2a48f51977aae745bdbc2e6c9175367, type: 3}
+  m_Sprite: {fileID: 562819211, guid: 6acd50ee91dc29d42bac55fe6cdb2f1a, type: 3}
   m_Color: {r: 0.78113204, g: 0.78113204, b: 0.78113204, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -141,23 +167,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6059585134524769734
+--- !u!114 &5397265064812699458
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7527064362032675645}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 203b4f2385382854cb8fb0e9d0154bb0, type: 3}
+  m_Script: {fileID: 11500000, guid: 021a198809974914999263782552a318, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ObjectBounce
+  m_EditorClassIdentifier: Assembly-CSharp::PersonWalkAway
   rb: {fileID: 8388453542673284493}
-  bounceForce: {x: 0, y: 15, z: 0}
-  direction: 0
-  scoreValue: 2
-  objectCollider: {fileID: 4585502936257519347}
-  objectSprite: {fileID: 6664990510753066872}
-  brokenSprite: {fileID: 21300000, guid: 61268bcdb6b05d5469db1aab0a557ea0, type: 3}
-  gm: {fileID: 0}
+  walkSpeed: {x: 5, y: 0, z: 0}

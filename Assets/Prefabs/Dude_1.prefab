@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8388453542673284493}
   - component: {fileID: 3582582625163634537}
   - component: {fileID: 6664990510753066872}
-  - component: {fileID: -517776509021067351}
+  - component: {fileID: 4326628430581164883}
   m_Layer: 0
-  m_Name: Person 1
+  m_Name: Dude_1
   m_TagString: Person
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,12 +102,12 @@ MonoBehaviour:
   scoreValue: 1
   personCollider: {fileID: 4585502936257519347}
   personSprite: {fileID: 6664990510753066872}
-  fallingSprite: {fileID: 1605027827, guid: 2cf586b252201df46865469a84fb9092, type: 3}
-  deadSprite: {fileID: -82675558, guid: 2cf586b252201df46865469a84fb9092, type: 3}
-  standingSprite: {fileID: 486364027, guid: 2cf586b252201df46865469a84fb9092, type: 3}
-  savedSprite: {fileID: 455736024, guid: 2cf586b252201df46865469a84fb9092, type: 3}
-  hitSprite: {fileID: 673544126, guid: 2cf586b252201df46865469a84fb9092, type: 3}
-  personWalkAway: {fileID: -517776509021067351}
+  fallingSprite: {fileID: 2032599797, guid: c339044e02bd85748b454ca7145c5f81, type: 3}
+  deadSprite: {fileID: -2082403102, guid: c339044e02bd85748b454ca7145c5f81, type: 3}
+  standingSprite: {fileID: -693831416, guid: c339044e02bd85748b454ca7145c5f81, type: 3}
+  savedSprite: {fileID: -1714984097, guid: c339044e02bd85748b454ca7145c5f81, type: 3}
+  hitSprite: {fileID: -2146889993, guid: c339044e02bd85748b454ca7145c5f81, type: 3}
+  personWalkAway: {fileID: 4326628430581164883}
   gm: {fileID: 0}
 --- !u!212 &6664990510753066872
 SpriteRenderer:
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 564515744, guid: 2cf586b252201df46865469a84fb9092, type: 3}
+  m_Sprite: {fileID: -162591145, guid: c339044e02bd85748b454ca7145c5f81, type: 3}
   m_Color: {r: 0.78113204, g: 0.78113204, b: 0.78113204, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -167,7 +167,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-517776509021067351
+--- !u!114 &4326628430581164883
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
