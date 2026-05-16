@@ -88,10 +88,11 @@ public class PersonBounce : MonoBehaviour
 
     private void SavePerson()
     {
+        StopFalling();
+        
         if (gm == null)
             gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         
-        StopFalling();
         gm.IncreaseScore(scoreValue);
         personSprite.sprite = standingSprite;
         StartCoroutine(walkTimer(0.5f));
@@ -99,10 +100,11 @@ public class PersonBounce : MonoBehaviour
 
     private void LetThemDie()
     {
+        StopFalling();
+        
         if (gm == null)
             gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         
-        StopFalling();
         gm.SomeoneDied();
         personSprite.sprite = deadSprite;
     }

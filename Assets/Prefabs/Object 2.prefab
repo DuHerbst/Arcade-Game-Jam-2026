@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4585502936257519347}
   - component: {fileID: 8388453542673284493}
   - component: {fileID: 6664990510753066872}
+  - component: {fileID: 6059585134524769734}
   m_Layer: 0
   m_Name: Object 2
-  m_TagString: Person
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,8 +54,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3, y: 0.3, z: 0.3}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.9669498, y: 1.4181383, z: 0.3}
+  m_Center: {x: 0.0025647879, y: -0.19490482, z: 0}
 --- !u!54 &8388453542673284493
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -63,7 +64,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7527064362032675645}
   serializedVersion: 5
-  m_Mass: 0.7
+  m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -140,3 +141,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6059585134524769734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7527064362032675645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203b4f2385382854cb8fb0e9d0154bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectBounce
+  rb: {fileID: 8388453542673284493}
+  bounceForce: {x: 0, y: 15, z: 0}
+  direction: 0
+  scoreValue: 2
+  objectCollider: {fileID: 4585502936257519347}
+  objectSprite: {fileID: 6664990510753066872}
+  brokenSprite: {fileID: 21300000, guid: 61268bcdb6b05d5469db1aab0a557ea0, type: 3}
+  gm: {fileID: 0}

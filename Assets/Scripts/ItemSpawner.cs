@@ -26,6 +26,8 @@ public class ItemSpawner : MonoBehaviour
     private void SpawnObject()
     {
         spawnOffset.x = Random.Range(-8, 8);
+        //my unity was fucked up and it wouldn't let me put it in the serialized field
+        spawnOffset.y = 5;
         
         Instantiate(objects[Random.Range(0, objects.Length)], spawnOffset, Quaternion.identity);
     }
