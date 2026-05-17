@@ -26,22 +26,20 @@ public class PersonSpawner : MonoBehaviour
     private IEnumerator SpawnTimer(float timer)
     { 
         canSpawn = false;
+
+        yield return new WaitForSeconds(timer);
         
         int selectedSpawnIndex = PickSpawnPointIndex();
         Transform selectedSpawnPoint = spawnPoints[selectedSpawnIndex];
         _lastSpawnedPoint = selectedSpawnIndex;
-    
-        Vector3 warningPosition = selectedSpawnPoint.position + Vector3.down;
+
+        Vector3 warningPosition = new Vector3(selectedSpawnPoint.position.x, 4f, selectedSpawnPoint.position.z);
 
         _spawnWarning = Instantiate(spawnWarningPrefab, warningPosition, Quaternion.identity);
-
         yield return new WaitForSeconds(spawnWarningTime);
+
         Destroy(_spawnWarning);
-
-        yield return new WaitForSeconds(timer);
-        
         SpawnDude(selectedSpawnPoint.position);
-
         canSpawn = true;
     }
 

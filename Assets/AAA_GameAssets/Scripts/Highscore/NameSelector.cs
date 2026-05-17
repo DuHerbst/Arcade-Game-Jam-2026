@@ -9,7 +9,6 @@ public class NameSelector : MonoBehaviour
     [SerializeField] private TMP_Text nameText;
     private float _currentLetter;
     private string _setLetters;
-    private bool _setName;
 
     private int _letterCounter;
 
@@ -21,8 +20,7 @@ public class NameSelector : MonoBehaviour
     }
 
     void Start()
-    {
-        _setName = false;
+    { 
         _setLetters = "";
         _letterCounter = 0;
         _currentLetter = 0;
@@ -56,10 +54,5 @@ public class NameSelector : MonoBehaviour
         _setLetters += characters[(int)_currentLetter];
         _currentLetter = 0;
         _letterCounter++;
-    }
-
-    public void NewName()
-    {
-        _setName = true;
     }
 }

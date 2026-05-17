@@ -4,14 +4,14 @@ public class BackgroundMusic : MonoBehaviour
 {
     
     [SerializeField] private AudioSource audioSource;
-    private bool startedMusic;
+    private bool _startedMusic;
     
     void Awake()
     {
-        if (startedMusic)
+        if (_startedMusic)
             audioSource.playOnAwake = false;
         else
-            startedMusic = true;
+            _startedMusic = true;
     }
 
     public void PlayMusic()

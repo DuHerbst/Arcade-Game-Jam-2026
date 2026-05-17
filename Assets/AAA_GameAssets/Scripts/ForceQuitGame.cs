@@ -1,29 +1,55 @@
-using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ForceQuitGame : MonoBehaviour
 {
-    [SerializeField] private TrampolineMovement trampolineMovement;
-    private bool clickedButton;
+    [SerializeField] private float quitGameTimer = 180f;
     
+    private float _lastInputTime;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        _lastInputTime = Time.unscaledTime;
+    }
+
     void Update()
     {
-        if (trampolineMovement.Direction == 0 && !clickedButton)
+        if (Mouse.current != null && Mouse.current.middleButton.wasPressedThisFrame)
         {
-            StartCoroutine(QuitGameTimer(180));
-        } else
+            Debug.Log("Mouse 3 pressed — quitting game");
+            Application.Quit();
+        }
+
+        if (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame)
         {
-            clickedButton = true;
+            ResetIdleTimer();
+        }
+
+        if (Mouse.current != null)
+        {
+            if (Mouse.current.leftButton.wasPressedThisFrame ||
+                Mouse.current.rightButton.wasPressedThisFrame ||
+                Mouse.current.middleButton.wasPressedThisFrame ||
+                Mouse.current.delta.ReadValue().sqrMagnitude > 0.01f)
+            {
+                ResetIdleTimer();
+            }
+        }
+
+        if (Time.unscaledTime - _lastInputTime >= quitGameTimer)
+        {
+            Debug.Log("Idle timer reached — quitting game");
+            Application.Quit();
         }
     }
 
-    private IEnumerator QuitGameTimer(float timer)
+    private void ResetIdleTimer()
     {
-        clickedButton = false;
-        yield return new WaitForSeconds(timer);
-        if (!clickedButton)
-            Application.Quit();
-        
-        clickedButton = false;
+        _lastInputTime = Time.unscaledTime;
     }
 }
