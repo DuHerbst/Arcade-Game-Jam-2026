@@ -16,7 +16,11 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         _bgMusic = GetComponent<BackgroundMusic>();
-        _bgMusic.PlayMusic();
+
+        if (_bgMusic != null)
+        {
+            _bgMusic.PlayMusic();
+        }
     }
     
     public void IncreaseScore(float value)
