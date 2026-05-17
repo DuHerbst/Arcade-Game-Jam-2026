@@ -10,6 +10,10 @@ public class TrampolineMovement : MonoBehaviour
     //AUDIO
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip bounceSfx;
+    
+    //ANIMATIONS
+    [SerializeField] private Animator animator;
+    
 
     public float Direction
     {
@@ -18,6 +22,11 @@ public class TrampolineMovement : MonoBehaviour
     
     void FixedUpdate()
     {
+        if (animator != null)
+        {
+            animator.SetBool("Walk_Anim", Mathf.Abs(_direction) > 0.01f); // take the parameter that the robot came with?
+        }
+        
         rb.linearVelocity = new Vector3(speed * _direction * Time.deltaTime, rb.linearVelocity.y, rb.linearVelocity.z);
     }
     

@@ -8,17 +8,28 @@ public class ObjectBounce : MonoBehaviour
     [SerializeField] private float direction;
     [SerializeField] private float scoreValue;
     [SerializeField] private BoxCollider objectCollider;
-    private float startingBounceForce;
-    private Vector3 stopMovement;
+    private float _startingBounceForce;
+    private Vector3 _stopMovement;
 
     [SerializeField] private SpriteRenderer objectSprite;
     [SerializeField] private Sprite brokenSprite;
-
     [SerializeField] private GameManager gm;
+    
+    //STAR
+    [SerializeField] private GameObject starPrefab;
+    [SerializeField] private Transform starSpawnPoint;
+    
+    private bool _showedStar;
+    
+    //AUDIO
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip crashSfx;
+    [SerializeField] private AudioClip dingSfx;
+    [SerializeField] private AudioClip objBounceSfx;
 
     void Start()
     {
-        startingBounceForce = bounceForce.y;
+        _startingBounceForce = bounceForce.y;
     }
 
     void OnCollisionEnter(Collision col)
@@ -27,7 +38,7 @@ public class ObjectBounce : MonoBehaviour
         
         if (col.gameObject.CompareTag("Player"))
         {
-            if (bounceForce.y < startingBounceForce / 3)
+            if (bounceForce.y < _startingBounceForce / 3)
             {
                 objectCollider.isTrigger = true;
                 return;
@@ -39,6 +50,24 @@ public class ObjectBounce : MonoBehaviour
                 direction = -1;
             
             bounceForce.x = direction;
+            
+            TrampolineMovement trampoline = col.gameObject.GetComponentInParent<TrampolineMovement>();
+
+            if (trampoline != null)
+            {
+                trampoline.PlayAudio();
+            }
+
+            if (!_showedStar && starPrefab != null && starSpawnPoint != null)
+            {
+                if (audioSource != null && dingSfx != null)
+                {
+                    audioSource.PlayOneShot(dingSfx);
+                }
+
+                Instantiate(starPrefab, starSpawnPoint.position, Quaternion.identity);
+                _showedStar = true;
+            }
             
             rb.AddForce(bounceForce, ForceMode.Impulse);
         }
@@ -54,7 +83,7 @@ public class ObjectBounce : MonoBehaviour
             
             StopFalling();
             
-            if (bounceForce.y < startingBounceForce / 1.2f)
+            if (bounceForce.y < _startingBounceForce / 1.2f)
             {
                 SavedObject();
                 return;
@@ -72,6 +101,12 @@ public class ObjectBounce : MonoBehaviour
 
     private void LetItFall()
     {
+
+        if (audioSource != null && crashSfx != null)
+        {
+            audioSource.PlayOneShot(crashSfx);
+        }
+        
         objectSprite.sprite = brokenSprite;
         StartCoroutine(DestroyedObject(2));
     }
@@ -83,8 +118,8 @@ public class ObjectBounce : MonoBehaviour
         
         //stopping their movement completely
         rb.useGravity = false;
-        rb.linearVelocity = stopMovement;
-        rb.angularVelocity = stopMovement;
+        rb.linearVelocity = _stopMovement;
+        rb.angularVelocity = _stopMovement;
 
         //Locking their rotation so they're upright
         gameObject.transform.rotation = new Quaternion(0,0,0,0);

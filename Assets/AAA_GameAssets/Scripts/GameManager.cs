@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     public void ReturnToStart()
     {
         score = 0;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void LoadScores(float[] highscores, string[] names)

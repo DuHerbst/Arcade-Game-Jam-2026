@@ -84,8 +84,13 @@ public class PersonBounce : MonoBehaviour
 
             if (!_showedStar && savedStar != null && starSpawnPoint != null)
             {
-                audioSource.PlayOneShot(dingSfx);
-                Instantiate(savedStar, starSpawnPoint.position, Quaternion.identity, transform);
+                
+                if (audioSource != null && dingSfx != null)
+                {
+                    audioSource.PlayOneShot(dingSfx);
+                }
+                
+                Instantiate(savedStar, starSpawnPoint.position, Quaternion.identity);
                 _showedStar = true;
                 
             }
